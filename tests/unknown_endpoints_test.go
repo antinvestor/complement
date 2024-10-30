@@ -28,7 +28,7 @@ func queryUnknownMethod(t *testing.T, user *client.CSAPI, method string, paths [
 
 	res := user.Do(t, method, paths)
 	must.MatchResponse(t, res, match.HTTPResponse{
-		StatusCode: http.StatusMethodNotAllowed,
+		StatusCode: http.StatusNotFound,
 		JSON: []match.JSON{
 			match.JSONKeyEqual("errcode", "M_UNRECOGNIZED"),
 		},
